@@ -369,6 +369,10 @@ h1 {
   color: black;
 }
 
+.letsPlay:focus {
+  border: 2px solid red;
+}
+
 .copyright {
   font-size: 2vmin;
 }
@@ -427,7 +431,7 @@ input {
 }
 
 label {
-  font-size: 2.5vmin;
+  font-size: 3.5vmin;
 }
 
 .answer {
@@ -450,7 +454,14 @@ label {
     margin: 12vh auto 0;
   }
   .question {
+    font-size: 6vmin;
     margin: 20px 10px;
+  }
+  .questionNumber {
+    font-size: 5vmin;
+  }
+  label {
+    font-size: 3vmin;
   }
   .answer {
     width: 25vw;
@@ -465,6 +476,9 @@ label {
   .question {
     margin: 0 8px 15px;
   }
+  label {
+    font-size: 2.7vmin;
+  }
   .answer {
     width: 25vw;
     height: 10vmin;
@@ -475,6 +489,9 @@ label {
 }
 
 @media (max-width: 480px) {
+  .option {
+    padding: 10px 15px;
+  }
   .answer {
     width: 30vw;
   }
@@ -521,7 +538,7 @@ label {
 }
 
 .totalScore {
-  font-size: 3.4vmin;
+  font-size: 12vmin;
   margin-top: 0;
   font-family: "Caveat", cursive;
   font-weight: bold;
