@@ -1,7 +1,7 @@
 .next,
 .playAgain {
-  width: 17vw;
-  height: 7vmin;
+  width: 20vw;
+  height: 10vmin;
   background-color: rgba($color: #000000, $alpha: 0.5);
   border-radius: 20px;
   border: none;
@@ -10,7 +10,7 @@
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 1.8rem;
+  font-size: 2.8vmin;
   margin-top: 50px;
 }
 
@@ -18,14 +18,47 @@
   margin-top: 0;
 }
 
+.playAgain:hover {
+  border: 2px solid $primaryColor;
+  background-color: transparent;
+  border-radius: 0;
+  color: $primaryColor;
+}
+
 .result {
-  font-size: 4vmax;
+  font-size: 4.5vmin;
+  font-family: $secondaryFont;
+  font-weight: bold;
+  margin-top: 0;
 }
 
 .correctAnswer {
-  font-size: 3.5vmax;
+  font-size: 4vmin;
+  font-family: $secondaryFont;
+  font-weight: bold;
 }
 
 .totalScore {
-  font-size: 3.4vmax;
+  font-size: 3.4vmin;
+  margin-top: 0;
+  font-family: $secondaryFont;
+  font-weight: bold;
+}
+
+//responsive design------
+
+@media (max-width: 768px) {
+  .next,
+  .playAgain {
+    width: 25vw;
+    height: 12vmin;
+  }
+}
+
+@media (max-width: 480px) {
+  .next,
+  .playAgain {
+    width: 30vw;
+    height: 15vmin;
+  }
 }

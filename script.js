@@ -7,26 +7,56 @@ $(document).ready(function() {
 
   let primarySpellingCollection = [
     {
-      question: "Many restaurants serve __________ as a side",
+      question: "Many restaurants serve ________ as a side.",
       options: ["broccolli", "broccoli", "brocolli"],
       answer: "broccoli"
     },
     {
       question:
-        "the truck was unable to __________ comfortably in the narrow street",
+        "The truck was unable to ________ comfortably in the narrow street.",
       options: ["maneuver", "manuever", "maneuvre"],
       answer: "maneuver"
     },
     {
       question:
-        "A range of symptoms of the desease include ___________ and vomiting",
+        "A range of symptoms of the desease include ________ and vomiting",
       options: ["diahrrea", "diarrhea", "diarhea"],
       answer: "diarrhea"
     },
     {
-      question: "any language must ____________ new concepts",
+      question: "Any language must ________ new concepts",
       options: ["accomodate", "acommodate", "accommodate"],
       answer: "accommodate"
+    },
+    {
+      question: "The area has experienced the worst drought in half a ________",
+      options: ["millenium", "milennium", "millennium"],
+      answer: "millennium"
+    },
+    {
+      question: "The ________ form was distributed properly.",
+      options: ["questionnaire", "questionaire", "questionnair"],
+      answer: "questionnaire"
+    },
+    {
+      question: "The students had little ________ with the language",
+      options: ["aquaintance", "acquaintance", "acquaintence"],
+      answer: "acquaintance"
+    },
+    {
+      question: "________ is my birthday.",
+      options: ["Tommorow", "Tomorrow", "Tommorrow"],
+      answer: "Tomorrow"
+    },
+    {
+      question: "The website was down for ________",
+      options: ["maintenance", "maintainance", "maintnance"],
+      answer: "maintenance"
+    },
+    {
+      question: "________ I climbed and shook the trees",
+      options: ["Occasionaly", "Occassionally", "Occasionally"],
+      answer: "Occasionally"
     }
   ];
 
@@ -55,10 +85,6 @@ $(document).ready(function() {
 
   $(".letsPlay").click(displayQuestions);
 
-  //when user clicks reset button, the game starts from the beginning
-
-  //$(".reset").click(resetGame);
-
   function displayQuestions() {
     //hide the introduction
     $(".introduction").addClass("hide");
@@ -74,7 +100,6 @@ $(document).ready(function() {
     $(".questionContainer").html(`
 
       <form class="quizForm">
-          <h2>Which is the correct spelling? </h2>
           <p class="questionNumber">
             Question ${currentQuestion + 1} out of ${spellingCollection.length}
           </p>
@@ -102,6 +127,8 @@ $(document).ready(function() {
     `);
   }
 
+  //when user submit the answer
+
   $("body").on("submit", "form", function(event) {
     event.preventDefault();
     let response = $("form input[type='radio']:checked").val();
@@ -123,7 +150,7 @@ $(document).ready(function() {
     } else {
       $(".resultContainer").html(`
         <p class="result">Wrong Answer</p>
-        <p class="correctAnswer">Right Answer: ${spellingCollection[currentQuestion].answer}</p>
+        <p class="correctAnswer">Right Answer is: ${spellingCollection[currentQuestion].answer}</p>
         <button class="next">Next</button>`);
       //empty the question container
       $(".questionContainer").html("");
@@ -131,24 +158,22 @@ $(document).ready(function() {
 
     if (quizOver == true) {
       $(".next").remove();
-
       $(".gameOver").html(`
-        
         <p class="totalScore"> Your Total Score is: ${score}/${spellingCollection.length}</p>
         <button class="playAgain">Play Again</button>
-  
       `);
     }
-
     currentQuestion++;
   });
 
+  //when user click next question
   $("body").on("click", ".next", function() {
     console.log("next question");
     $(".resultContainer").html("");
     displayQuestions();
   });
 
+  //when user click play again button
   $("body").on("click", ".playAgain", function() {
     currentQuestion = 0;
     score = 0;

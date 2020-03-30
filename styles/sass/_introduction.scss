@@ -1,27 +1,65 @@
 h1 {
-  font-size: 8vmax;
+  font-size: 20vmin;
+  font-family: $secondaryFont;
+  margin-bottom: 0;
 }
 
 .introduction {
-  min-height: 70%;
+  min-height: 50%;
+  margin: auto auto;
 }
 
-.introduction p {
-  font-size: 3.5vmax;
+.instructionLineOne {
+  font-size: 7vmin;
   font-weight: bold;
+  font-family: $secondaryFont;
+}
+
+.instructionLineTwo {
+  font-size: 3.5vmin;
+  font-family: $secondaryFont;
+  padding: 0 10px;
 }
 
 .letsPlay {
   width: 20vw;
   height: 10vh;
   background-color: rgba($color: #000000, $alpha: 0.5);
-  border-radius: 20px;
   border: none;
+  font-size: 3.5vmin;
+  transition: all 0.7s;
+
+  border-radius: 20px;
+
   color: white;
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 1.8rem;
   margin-top: 50px;
+}
+
+.letsPlay:hover {
+  border: 2px solid $primaryColor;
+  background-color: transparent;
+  border-radius: 0;
+  color: $primaryColor;
+}
+
+.copyright {
+  font-size: 2vmin;
+}
+
+@media (max-width: 768px) {
+  .letsPlay {
+    margin-top: 0;
+    width: 30vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .letsPlay {
+    margin-top: 0;
+    width: 40vw;
+  }
 }

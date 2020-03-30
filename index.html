@@ -3,14 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Spelling Wizard</title>
+    <title>Spelling Bee</title>
 
     <!-- linking the google fonts -->
 
-    <link
+    <!-- <link
       href="https://fonts.googleapis.com/css?family=Lora:400,700|Raleway:400,700&display=swap"
       rel="stylesheet"
+    /> -->
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Caveat:400,700|Lora:400,700&display=swap"
+      rel="stylesheet"
     />
+
+    <!-- linking font awesome -->
+    <script
+      src="https://kit.fontawesome.com/35ca208e9c.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- linking the stylesheet -->
 
     <link rel="stylesheet" href="styles/style.css" />
   </head>
@@ -19,9 +32,14 @@
     <div class="wrapper">
       <!-- intro page -->
       <div class="introduction">
-        <h1>Spelling Wizard</h1>
-        <p>
-          Here is a quiz to test your spelling skills
+        <h1>Spelling Bee</h1>
+        <p class="instructionLineOne">
+          <i class="fas fa-pen-fancy"></i>
+          Test your spelling skills with the quiz
+        </p>
+        <p class="instructionLineTwo">
+          Each sentence in the quiz contain a hard-to-spell word. See if you can
+          fill in the blank with the correct spelling.
         </p>
         <button class="letsPlay">Let's Start</button>
       </div>
@@ -34,11 +52,6 @@
 
       <!-- display message when the game is over -->
       <div class="gameOver"></div>
-
-      <!-- copyright text -->
-      <div>
-        <p>Developed by Farzana Prianka</p>
-      </div>
     </div>
 
     <!-- jQuery CDN -->
