@@ -89,6 +89,9 @@ $(document).ready(function() {
     //hide the introduction
     $(".introduction").addClass("hide");
 
+    //add css
+    $(".questionContainer").addClass("border");
+
     //store the options from options array (which is a property in the object stored in spellingCollection array)
 
     let option1 = spellingCollection[currentQuestion].options[0];
@@ -131,6 +134,9 @@ $(document).ready(function() {
 
   $("body").on("submit", "form", function(event) {
     event.preventDefault();
+
+    $(".questionContainer").removeClass("border");
+
     let response = $("form input[type='radio']:checked").val();
 
     if (currentQuestion == spellingCollection.length - 1) {
@@ -139,31 +145,34 @@ $(document).ready(function() {
 
     if (response == undefined) {
       alert("please select a answer");
-    } else if (response == spellingCollection[currentQuestion].answer) {
-      $(".resultContainer").html(`
-        <p class="result">Correct Answer</p>
-        <button class="next">Next</button>`);
-      //increase the score
-      score++;
-      //empty the question container
-      $(".questionContainer").html("");
+      $(".questionContainer").addClass("border");
     } else {
-      $(".resultContainer").html(`
-        <p class="result">Wrong Answer</p>
-        <p class="correctAnswer">Right Answer is: ${spellingCollection[currentQuestion].answer}</p>
-        <button class="next">Next</button>`);
-      //empty the question container
-      $(".questionContainer").html("");
-    }
+      if (response == spellingCollection[currentQuestion].answer) {
+        $(".resultContainer").html(`
+          <p class="result">Correct Answer</p>
+          <button class="next">Next</button>`);
+        //increase the score
+        score++;
+        //empty the question container
+        $(".questionContainer").html("");
+      } else {
+        $(".resultContainer").html(`
+          <p class="result">Wrong Answer</p>
+          <p class="correctAnswer">Right Answer is: ${spellingCollection[currentQuestion].answer}</p>
+          <button class="next">Next</button>`);
+        //empty the question container
+        $(".questionContainer").html("");
+      }
 
-    if (quizOver == true) {
-      $(".next").remove();
-      $(".gameOver").html(`
-        <p class="totalScore"> Your Total Score is: ${score}/${spellingCollection.length}</p>
-        <button class="playAgain">Play Again</button>
-      `);
+      if (quizOver == true) {
+        $(".next").remove();
+        $(".gameOver").html(`
+          <p class="totalScore"> Your Total Score is: ${score}/${spellingCollection.length}</p>
+          <button class="playAgain">Play Again</button>
+        `);
+      }
+      currentQuestion++;
     }
-    currentQuestion++;
   });
 
   //when user click next question

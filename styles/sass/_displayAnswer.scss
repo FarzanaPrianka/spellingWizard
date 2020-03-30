@@ -48,6 +48,9 @@
 //responsive design------
 
 @media (max-width: 768px) {
+  .result {
+    font-size: 8vmin;
+  }
   .next,
   .playAgain {
     width: 25vw;
